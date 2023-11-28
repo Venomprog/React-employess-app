@@ -5,16 +5,15 @@ import AppFilter from '../app-filter/app-filter';
 import EmployeesList from '../employees-list/employees-list';
 import EmployeesAddForm from '../employees-add-form/employees-add-form';
 
-function WhoAmI (props) {
-  return (
-    <div>
-      <h1>My name is {props.name}, surname - {props.surname}</h1>
-      <a href={props.link}>My profile</a>
-    </div>
-  )
-}
 
 function App() {
+
+  const data = [
+    {name: "John C.", salary: 800, increase: true},
+    {name: "Alex M.", salary: 3000, increase: false},
+    {name: "Egor C.", salary: 15000, increase: true},
+  ];
+
   return(
     <div className="app">
       <AppInfo/>
@@ -24,13 +23,10 @@ function App() {
         <AppFilter/>
       </div>
 
-      <EmployeesList/>
+      <EmployeesList data={data}/>
 
       <EmployeesAddForm/>
-      <div className="test">
-        <WhoAmI name="John" surname="Smith" link="facebook.com"/>
-        <WhoAmI name="Alex" surname="Shepard" link="vk.com"/>
-      </div>
+
     </div>
   )
 }
